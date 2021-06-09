@@ -1,0 +1,477 @@
+
+
+/* Order Form */
+
+position: absolute;
+width: 256px;
+height: 600px;
+left: 1161px;
+top: 130px;
+
+
+
+/* Menu */
+
+.menu {position: absolute;
+width: 256px;
+height: 600px;
+left: 1161px;
+top: 130px;
+
+border: 1px solid #F50091;
+filter: drop-shadow(0px 0px 8px rgba(245, 0, 145, 0.65));
+border-radius: 50px;
+}
+
+/* ETH */
+
+position: absolute;
+width: 23px;
+height: 14px;
+left: 1203px;
+top: 301px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: 800;
+font-size: 10px;
+line-height: 12px;
+letter-spacing: -0.5px;
+text-decoration-line: underline;
+
+color: #C4C4C4;
+
+
+
+/* FOR */
+
+position: absolute;
+width: 23px;
+height: 14px;
+left: 1279px;
+top: 334px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.5px;
+text-transform: lowercase;
+
+color: #FFFFFF;
+
+
+
+/* AND */
+
+position: absolute;
+width: 23px;
+height: 14px;
+left: 1280px;
+top: 403px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.5px;
+text-transform: lowercase;
+
+color: #FFFFFF;
+
+
+
+/* AND */
+
+position: absolute;
+width: 23px;
+height: 14px;
+left: 1280px;
+top: 476px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: bold;
+font-size: 12px;
+line-height: 14px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.5px;
+text-transform: lowercase;
+
+color: #FFFFFF;
+
+
+
+/* 50% */
+
+position: absolute;
+width: 32px;
+height: 14px;
+left: 1351px;
+top: 369px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: 800;
+font-size: 8px;
+line-height: 9px;
+text-align: center;
+letter-spacing: -0.5px;
+text-transform: lowercase;
+
+color: #FFFFFF;
+
+
+
+/* 50% */
+
+position: absolute;
+width: 32px;
+height: 14px;
+left: 1351px;
+top: 442px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: 800;
+font-size: 8px;
+line-height: 9px;
+text-align: center;
+letter-spacing: -0.5px;
+text-transform: lowercase;
+
+color: #FFFFFF;
+
+
+
+/* ADD SOMETHING ELSE TO YOUR ORDER? */
+
+position: absolute;
+width: 173px;
+height: 14px;
+left: 1205px;
+top: 514px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: bold;
+font-size: 10px;
+line-height: 12px;
+text-align: center;
+letter-spacing: -0.5px;
+text-transform: lowercase;
+
+color: #FFFFFF;
+
+opacity: 0.25;
+
+
+/* DEGEN */
+
+position: absolute;
+width: 43px;
+height: 14px;
+left: 1203px;
+top: 367px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: 800;
+font-size: 10px;
+line-height: 12px;
+letter-spacing: -0.5px;
+text-decoration-line: underline;
+
+color: #C4C4C4;
+
+
+
+/* TOKN */
+
+position: absolute;
+width: 43px;
+height: 14px;
+left: 1203px;
+top: 440px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: 800;
+font-size: 10px;
+line-height: 12px;
+letter-spacing: -0.5px;
+text-decoration-line: underline;
+
+color: #C4C4C4;
+
+
+
+/* Swap */
+
+position: absolute;
+width: 186px;
+height: 22px;
+left: 1198px;
+top: 567px;
+
+font-family: Space Grotesk;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 23px;
+text-align: center;
+letter-spacing: -0.5px;
+
+color: #FFFFFF;
+
+
+
+/* Rectangle 18 */
+
+position: absolute;
+width: 186px;
+height: 36px;
+left: 1197px;
+top: 289px;
+
+background: #641C55;
+border-radius: 20px;
+
+
+/* Rectangle 19 */
+
+position: absolute;
+width: 186px;
+height: 36px;
+left: 1197px;
+top: 355px;
+
+background: #641C55;
+border-radius: 20px;
+
+
+/* Rectangle 20 */
+
+position: absolute;
+width: 186px;
+height: 36px;
+left: 1197px;
+top: 428px;
+
+background: #641C55;
+border-radius: 20px;
+
+
+/* Rectangle 21 */
+
+position: absolute;
+width: 186px;
+height: 36px;
+left: 1197px;
+top: 502px;
+
+background: #641C55;
+opacity: 0.25;
+border: 0.5px dashed #FFFFFF;
+box-sizing: border-box;
+border-radius: 20px;
+
+
+/* ETH */
+
+position: absolute;
+width: 23px;
+height: 14px;
+left: 1213px;
+top: 301px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: 800;
+font-size: 10px;
+line-height: 12px;
+letter-spacing: -0.5px;
+
+color: #FFC33C;
+
+
+
+/* DEGEN */
+
+position: absolute;
+width: 43px;
+height: 14px;
+left: 1213px;
+top: 367px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: 800;
+font-size: 10px;
+line-height: 12px;
+letter-spacing: -0.5px;
+
+color: #FFC33C;
+
+
+
+/* TOKN */
+
+position: absolute;
+width: 43px;
+height: 14px;
+left: 1213px;
+top: 440px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: 800;
+font-size: 10px;
+line-height: 12px;
+letter-spacing: -0.5px;
+
+color: #FFC33C;
+
+
+
+/* 2.284 */
+
+position: absolute;
+width: 47px;
+height: 23px;
+left: 1266px;
+top: 296px;
+
+font-family: Space Grotesk;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 23px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.5px;
+
+color: #FFFFFF;
+
+
+
+/* 4172.32 */
+
+position: absolute;
+width: 64px;
+height: 23px;
+left: 1258px;
+top: 362px;
+
+font-family: Space Grotesk;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 23px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.5px;
+
+color: #FFFFFF;
+
+
+
+/* 273.99 */
+
+position: absolute;
+width: 57px;
+height: 23px;
+left: 1261px;
+top: 435px;
+
+font-family: Space Grotesk;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 23px;
+/* identical to box height */
+text-align: center;
+letter-spacing: -0.5px;
+
+color: #FFFFFF;
+
+
+
+/* Advanced */
+
+position: absolute;
+width: 57px;
+height: 11px;
+left: 1262px;
+top: 708px;
+
+
+
+/* fi-ss-settings */
+
+position: absolute;
+width: 9px;
+height: 9px;
+left: 1262px;
+top: 708px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0.44%;
+right: 0.45%;
+top: 0%;
+bottom: 0%;
+
+background: #C4C4C4;
+
+
+/* Advanced */
+
+position: absolute;
+width: 41px;
+height: 11px;
+left: 1278px;
+top: 708px;
+
+font-family: Karla;
+font-style: normal;
+font-weight: 800;
+font-size: 9px;
+line-height: 11px;
+/* identical to box height */
+letter-spacing: -0.5px;
+
+color: #FFFFFF;
+
+
+
+/* Menu */
+
+position: absolute;
+width: 256px;
+height: 600px;
+left: 1161px;
+top: 130px;
+
+background: #001E46;
+border-radius: 50px;
+
+/* Rectangle 18 */
+
+position: absolute;
+width: 186px;
+height: 36px;
+left: 1197px;
+top: 289px;
+
+

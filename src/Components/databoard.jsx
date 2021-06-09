@@ -22,7 +22,7 @@ export default function Databoard (props) {
     function generateDivs() {
       let displayArr = [];
       GeckoData.forEach(coin => displayArr.push(<div className='coin-item' key={coin['item']['coin_id']}>{coin['item']['name']}</div>))
-      return displayArr
+      return displayArr;
     }
 
     return (
