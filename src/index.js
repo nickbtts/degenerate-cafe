@@ -6,6 +6,39 @@ import React, {useState} from "react";
 import ReactDOM from "react-dom";
 import GridLayout from "./Containers/GridLayout"
 import TradeBar from './Components/tradebar'
+import { ApolloClient } from 'apollo-client';
+import { ApolloProvider } from "@apollo/react-hooks"
+import { InMemoryCache } from 'apollo-cache-inmemory';
+
+import { split } from 'apollo-link';
+import { WebSocketLink } from 'apollo-link-ws';
+import { HttpLink } from 'apollo-link-http';
+
+const httpLink = new HttpLink({
+  uri: 'https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2'
+});
+
+const wsLink = new WebSocketLink({
+  uri: 'wss://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2',
+  options: {
+      reconnect: true
+  }
+});
+
+const terminatingLink = split(
+  ({ query: { definitions } }) =>
+      definitions.some(node => {
+          const { kind, operation } = node;
+          return kind === 'OperationDefinition' && operation === 'subscription';
+      }),
+  wsLink,
+  httpLink
+);
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: terminatingLink
+});
 
 export default function MasterLayout (props) {
     const [layout, setLayout] = useState([])
@@ -15,6 +48,9 @@ export default function MasterLayout (props) {
   }
 
   return (
+    <ApolloProvider client={client}>
+
+
     <div class="parent">
       <div class="nav-bar"></div>
       <div class="trade-bar">
@@ -26,7 +62,9 @@ export default function MasterLayout (props) {
       <GridLayout onLayoutChange={onLayoutChange} />
       </div>
       </div>
+      </ApolloProvider>
     );
+    
 }
 
 const contentDiv = document.getElementById("root");

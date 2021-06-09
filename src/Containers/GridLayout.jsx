@@ -11,7 +11,7 @@ const ReactGridLayout = WidthProvider(RGL);
 export default function GridLayout (props) {
 
   const generateDOM = () => {
-    const mapBoards= [<div id='board-one'key={0}><Databoard ></Databoard></div>,<div key={1}><LiveBoard></LiveBoard></div>,<div key={2}></div>,<div key={3} id='big-board'></div>,<div key={4}></div>,<div key={5}></div>];
+    const mapBoards= [<div id='board-one'key={0}><Databoard ></Databoard></div>,<div key={1}></div>,<div key={2}></div>,<div key={3} id='big-board'><LiveBoard></LiveBoard></div>,<div key={4}></div>,<div key={5}></div>];
     console.log(mapBoards)
     return mapBoards;
   };
