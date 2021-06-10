@@ -19,7 +19,7 @@ body {
 }
 
 #big-board {
-
+  height: 200px;
   border: 2px solid #F50091;
 }
 

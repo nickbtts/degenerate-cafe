@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { ParaSwap } from 'paraswap';
 import './tradebar.css'
+import GasPrice from './gasprice'
 
 export default function TradeBar(props) {
 
@@ -15,6 +16,7 @@ export default function TradeBar(props) {
         <div className="output-token"></div>
         <div className="swp-txt menu-text">Swap</div>
       </div>
+      <GasPrice></GasPrice>
     </div>
     
   )
