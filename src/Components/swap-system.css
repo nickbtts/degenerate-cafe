@@ -1,0 +1,82 @@
+.ps-widget {
+  font-family: "Lato", "Helvetica Neue", "Arial", "Helvetica", "sans-serif";
+  background-color: black;
+  padding: 15px;
+  height: 100%;
+  margin: 10px auto;
+  max-width: 400px;
+}
+@keyframes titleAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.ps-widget .balance {
+  margin: 5px 0px 0px 0px;
+  border: 1px solid white;
+  background: none;
+  color: white;
+  border-radius: 5px;
+}
+.ps-widget .balance.outOfBalance-true {
+  color: #fd043e;
+}
+.ps-widget .primary.button {
+  background-color: #393fe4;
+}
+.ps-widget .primary.button:hover,
+.ps-widget .primary.button:active,
+.ps-widget .primary.button:focus,
+.ps-widget .primary.button:visited {
+  background-color: #8f6bfd;
+}
+.ps-widget .positive.button {
+  background-color: #fd043e;
+}
+.ps-widget .positive.button:hover,
+.ps-widget .positive.button:active,
+.ps-widget .positive.button:focus,
+.ps-widget .positive.button:visited {
+  background-color: #e0899d;
+}
+.ps-widget .form .field > .selection.dropdown {
+  height: 51px;
+  line-height: normal;
+}
+.ps-widget .ui.selection.dropdown .menu > .item {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.ps-widget .ui.selection.dropdown .text > img {
+  margin-right: 15px;
+}
+.ps-widget .button {
+  letter-spacing: 1px;
+}
+.ps-widget .form .field input,
+.ps-widget .button,
+.ps-widget .dropdown > .text {
+  font-size: 20px;
+}
+.ps-widget .form .field .ui.input input {
+  box-shadow: none;
+  border: none;
+  letter-spacing: 1px;
+}
+.ps-widget .image {
+  margin-bottom: 10px;
+}
+.ps-widget .message {
+  animation-name: titleAnimation;
+  animation-duration: 1s;
+}
+.ps-widget .form-label {
+  width: 100%;
+  font-size: 23px;
+  background: white;
+  font-weight: normal;
+}
