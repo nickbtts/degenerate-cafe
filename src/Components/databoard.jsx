@@ -4,39 +4,46 @@ import { useQuery } from "react-query";
 const axios = require("axios").default;
 
 export default function Databoard() {
-  const [GeckoData, setGeckoData] = useState([]);
+  const [DisplayData, setDisplayData] = useState([]);
+
   useEffect(() => {
     axios({
       method: "get",
       url: "https://api.coingecko.com/api/v3/search/trending",
-      //responseType: 'stream'
-    }).then(function (response) {
-      setGeckoData(response.data.coins);
-      console.log();
-    });
+    })
+      .then(function (response) {
+        return response.data.coins;
+      })
+      .then((res) => {
+        return Promise.all(
+          res.map((coin) => {
+            return axios({
+              method: "get",
+              url: `https://api.coingecko.com/api/v3/coins/${coin["item"]["id"]}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false`,
+            });
+          })
+        );
+      })
+      .then(function (response) {
+        return response.map((coin) => {
+          return (
+            <div className="coin-item" key={coin.data["id"]}>
+              {coin.data["name"]}
+            </div>
+          );
+        });
+      })
+      .then(function (disArr) {
+        setDisplayData((prev) => disArr);
+      });
   }, []);
 
-  function generateDivs() {
-    let displayArr = [];
-    GeckoData.forEach((coin) =>
-      displayArr.push(
-        <div className="coin-item" key={coin["item"]["coin_id"]}>
-          {coin["item"]["name"]}
-        </div>
-      )
-    );
-    return displayArr;
-  }
-
-  return <div className="par">{generateDivs()}</div>;
-  // function Trending() {
-  //   const { isLoading, isError, data, error } = useQuery('todos', fetchTodoList)
-
-  //   if (isLoading) {
-  //     return <span>Loading...</span>
-  //   }
-
-  //   if (isError) {
-  //     return <span>Error: {error.message}</span>
-  //   }
+  return (
+    <div className="datab-parent">
+      <div className="title">
+        <span>Trending On Coingecko</span>
+      </div>
+      <div className="par">{DisplayData}</div>;
+    </div>
+  );
 }

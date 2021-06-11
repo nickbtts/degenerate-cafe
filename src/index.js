@@ -13,30 +13,81 @@ import { split } from "apollo-link";
 import { WebSocketLink } from "apollo-link-ws";
 import { HttpLink } from "apollo-link-http";
 
-const httpLink = new HttpLink({
+const uniHttpLink = new HttpLink({
   uri: "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2",
 });
 
-const uniLink = new WebSocketLink({
+const sushiHttpLink = new HttpLink({
+  uri: "https://api.thegraph.com/subgraphs/name/sushiswap/exchange",
+});
+
+const uniWSLink = new WebSocketLink({
   uri: "wss://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2",
   options: {
     reconnect: true,
   },
 });
 
-const terminatingLink = split(
+const sushiWSLink = new WebSocketLink({
+  uri: "wss://api.thegraph.com/subgraphs/name/sushiswap/exchange",
+  options: {
+    reconnect: true,
+  },
+});
+
+const univ3WSLink = new WebSocketLink({
+  uri: "wss://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-testing",
+  options: {
+    reconnect: true,
+  },
+});
+
+const univ3HttpLink = new HttpLink({
+  uri: "https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-testing",
+});
+
+const terminatingUniLink = split(
   ({ query: { definitions } }) =>
     definitions.some((node) => {
       const { kind, operation } = node;
       return kind === "OperationDefinition" && operation === "subscription";
     }),
-  uniLink,
-  httpLink
+  uniWSLink,
+  uniHttpLink
 );
 
-const client = new ApolloClient({
+const terminatingUniv3Link = split(
+  ({ query: { definitions } }) =>
+    definitions.some((node) => {
+      const { kind, operation } = node;
+      return kind === "OperationDefinition" && operation === "subscription";
+    }),
+  univ3WSLink,
+  univ3HttpLink
+);
+const terminatingSushiLink = split(
+  ({ query: { definitions } }) =>
+    definitions.some((node) => {
+      const { kind, operation } = node;
+      return kind === "OperationDefinition" && operation === "subscription";
+    }),
+  sushiWSLink,
+  sushiHttpLink
+);
+
+const uniClient = new ApolloClient({
   cache: new InMemoryCache(),
-  link: terminatingLink,
+  link: terminatingUniLink,
+});
+
+const sushiClient = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: terminatingSushiLink,
+});
+
+const univ3Client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: terminatingUniv3Link,
 });
 
 export default function MasterLayout(props) {
@@ -47,7 +98,7 @@ export default function MasterLayout(props) {
   };
 
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider client={{ uniClient, sushiClient, univ3Client }}>
       <div class="parent">
         <div class="nav-bar"></div>
         <div class="trade-bar">

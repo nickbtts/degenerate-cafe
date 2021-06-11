@@ -1,12 +1,9 @@
-import React, {useState} from 'react'
-import { ParaSwap } from 'paraswap';
-import './tradebar.css'
-import GasPrice from './gasprice'
+import React, { useState } from "react";
+import { ParaSwap } from "paraswap";
+import "./tradebar.css";
+import GasPrice from "./gasprice";
 
 export default function TradeBar(props) {
-
-
-
   return (
     <div className="parent-tradebar">
       <div className="connection"></div>
@@ -18,8 +15,5 @@ export default function TradeBar(props) {
       </div>
       <GasPrice></GasPrice>
     </div>
-    
-  )
+  );
 }
-
-

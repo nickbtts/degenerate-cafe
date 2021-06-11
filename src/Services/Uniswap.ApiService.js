@@ -69,6 +69,35 @@ export const TRADE_SUBSCRIPTION = gql`
   }
 `;
 
+export const UNIV3_SUBSCRIPTION = gql`
+  subscription {
+    swaps(
+      where: { amountUSD_gt: "5000" }
+      orderBy: timestamp
+      orderDirection: desc
+    ) {
+      sender
+      transaction {
+        id
+        timestamp
+      }
+      token0 {
+        id
+        symbol
+        name
+      }
+      token1 {
+        id
+        symbol
+        name
+      }
+      amount0
+      amount1
+      amountUSD
+    }
+  }
+`;
+
 // const client = new ApolloClient({
 //   uri: APIURL,
 //   cache: new InMemoryCache(),

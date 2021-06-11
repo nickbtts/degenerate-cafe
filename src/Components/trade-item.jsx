@@ -3,43 +3,34 @@ import "./trade-item.css";
 
 export default function TradeItem(props) {
   const { data } = props;
-  let noOut, tokOut, noIn, tokIn, totUSD;
-  function roundToTwo(num) {
-    return +(Math.round(num + "e+2") + "e-2");
-  }
 
-  function dataWash(data) {
-    totUSD = roundToTwo(data.amountUSD);
-    if (data.amount0Out === "0") {
-      noOut = roundToTwo(data.amount1Out);
-      tokOut = data.pair.token1.symbol;
-      noIn = roundToTwo(data.amount0In);
-      tokIn = data.pair.token0.symbol;
-    } else {
-      noOut = roundToTwo(data.amount0Out);
-      tokOut = data.pair.token0.symbol;
-      noIn = roundToTwo(data.amount1In);
-      tokIn = data.pair.token1.symbol;
+  function resolveSource() {
+    if (data.source === "univ2") {
+      return "/uniswap-v2-pink.png";
+    } else if (data.source === "sushi") {
+      return "/sushiswap.png";
+    } else if (data.source === "univ3") {
+      return "/uniswap-v3.png";
     }
-    return (
-      <>
-        <div className="icon">
-          <a
-            href={`http://etherscan.io/tx/${data.transaction.id}`}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <img className="univ2" src="/uniswap-v2-pink.png" alt="univ2" />
-          </a>
-        </div>
-        <div className="noin titem">{noIn}</div>
-        <div className="swapnames">
-          {tokIn} / {tokOut}
-        </div>
-        <div className="noout titem">{noOut}</div>
-        <div className="totUSD titem"> ${totUSD}</div>
-      </>
-    );
+    return;
   }
-  return <div className="par-tradeitem">{dataWash(data)}</div>;
+  return (
+    <div className="par-tradeitem">
+      <div className="icon">
+        <a
+          href={`http://etherscan.io/tx/${data.transaction.id}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="univ2" src={resolveSource()} alt="source" />
+        </a>
+      </div>
+      <div className="noin titem">{data.noIn}</div>
+      <div className="swapnames">
+        {data.tokIn} / {data.tokOut}
+      </div>
+      <div className="noout titem">{data.noOut}</div>
+      <div className="totUSD titem"> ${data.totUSD}</div>
+    </div>
+  );
 }

@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .par {
   color: whitesmoke;
   width: 100%;
@@ -10,5 +14,13 @@
 }
 
 .coin-item {
-  padding: 3px
+  padding: 3px;
+}
+
+.title {
+  font-family: "Space-Grotesk Bold", serif;
+  color: white;
+  text-align: left;
+  padding: 3px;
+  border-bottom: 2px solid #1cedff;
 }
