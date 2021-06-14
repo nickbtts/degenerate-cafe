@@ -12,6 +12,8 @@ import { InMemoryCache } from "apollo-cache-inmemory";
 import { split } from "apollo-link";
 import { WebSocketLink } from "apollo-link-ws";
 import { HttpLink } from "apollo-link-http";
+import InTokenContext from "./Contexts/in-token-context";
+import OutTokenContext from "./Contexts/out-token-context";
 
 // @ts-ignore
 
@@ -94,27 +96,43 @@ const univ3Client = new ApolloClient({
 
 export default function MasterLayout(props) {
   const [layout, setLayout] = useState([]);
+  const [inToken, setInToken] = useState({
+    value: "ETH",
+    name: "ETH",
+    address: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+  });
+  const [outToken, setOutToken] = useState({
+    value: "DAI",
+    name: "DAI",
+    address: "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359",
+  });
+
+  //const [outToken, setOutToken] = useState({});
 
   const onLayoutChange = (layout) => {
     setLayout(layout);
   };
 
   return (
-    <ApolloProvider client={{ uniClient, sushiClient, univ3Client }}>
-      <div className="parent">
-        <div className="nav-bar">
-          <img className="logo-nav" src="/logo.svg"></img>
-        </div>
-        <div className="trade-bar">
-          <TradeBar></TradeBar>
-        </div>
+    <OutTokenContext.Provider value={{ outToken, setOutToken }}>
+      <InTokenContext.Provider value={{ inToken, setInToken }}>
+        <ApolloProvider client={{ uniClient, sushiClient, univ3Client }}>
+          <div className="parent">
+            <div className="nav-bar">
+              <img className="logo-nav" src="/logo.svg"></img>
+            </div>
+            <div className="trade-bar">
+              <TradeBar></TradeBar>
+            </div>
 
-        <div className="main-area">
-          <div className="logo-top"></div>
-          <GridLayout onLayoutChange={onLayoutChange} />
-        </div>
-      </div>
-    </ApolloProvider>
+            <div className="main-area">
+              <div className="logo-top"></div>
+              <GridLayout onLayoutChange={onLayoutChange} />
+            </div>
+          </div>
+        </ApolloProvider>
+      </InTokenContext.Provider>
+    </OutTokenContext.Provider>
   );
 }
 

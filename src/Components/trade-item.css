@@ -1,35 +1,38 @@
-.par-tradeitem{
+.par-tradeitem {
   color: whitesmoke;
-  display: grid; 
-  grid-template-columns: 0.1fr 0.3fr 0.8fr 0.4fr 0.8fr 0.4fr; 
-  grid-template-rows: 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-    ". . . . . ."; 
-  justify-content: center; 
-  align-items: center; 
+  display: grid;
+  grid-template-columns: 0.1fr 0.3fr 0.8fr 0.4fr 0.8fr 0.4fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". . . . . .";
+  justify-content: center;
+  align-items: center;
   width: 100%;
   margin-top: 5px;
 }
 
-
 .swapnames {
-grid-area: 1 / 4 / 2 / 5;
-font-family: Karla;
-font-style: normal;
-font-weight: 800;
-font-size: 11px;
-/* identical to box height */
-letter-spacing: 0.015em;
-color: #FFFFFF;
-background: rgba(245, 54, 97, 0.5);
-border: 0.5px solid #F53661;
-border-radius: 20px;
-white-space: nowrap;
-
+  grid-area: 1 / 4 / 2 / 5;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 11px;
+  /* identical to box height */
+  letter-spacing: 0.015em;
+  color: #ffffff;
+  background: rgba(245, 54, 97, 0.5);
+  border: 0.5px solid #f53661;
+  border-radius: 20px;
+  white-space: nowrap;
+  cursor: pointer;
 }
 
-.titem { 
+.swapnames:hover {
+  background: #1a84b6;
+  border: 0.5px solid #1a84b6;
+}
+
+.titem {
   font-size: 12px;
   margin-left: 4%;
   margin-right: 4%;
@@ -42,7 +45,7 @@ white-space: nowrap;
 
 .noout {
   grid-area: 1 / 5 / 2 / 6;
-  justify-self: left
+  justify-self: left;
 }
 
 .totUSD {
@@ -56,4 +59,3 @@ white-space: nowrap;
   padding: 0px;
   margin: 0px;
 }
-

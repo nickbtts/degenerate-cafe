@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import "./trade-item.css";
+import InTokenContext from "../Contexts/in-token-context";
+import OutTokenContext from "../Contexts/out-token-context";
 
 export default function TradeItem(props) {
   const { data } = props;
+  const { inToken, setInToken } = useContext(InTokenContext);
+  const { outToken, setOutToken } = useContext(OutTokenContext);
+
+  function handleClick(e) {
+    setInToken({
+      value: data.tokIn,
+      name: data.tokIn,
+    });
+    setOutToken({
+      value: data.tokOut,
+      name: data.tokOut,
+    });
+  }
 
   function resolveSource() {
     if (data.source === "univ2") {
@@ -26,7 +41,7 @@ export default function TradeItem(props) {
         </a>
       </div>
       <div className="noin titem">{data.noIn}</div>
-      <div className="swapnames">
+      <div onClick={handleClick} className="swapnames">
         {data.tokIn} / {data.tokOut}
       </div>
       <div className="noout titem">{data.noOut}</div>

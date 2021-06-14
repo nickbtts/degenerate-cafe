@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "../index.css";
 import Databoard from "../Components/databoard.jsx";
 import LiveBoard from "../Components/liveboard.jsx";
 import NewPools from "../Components/newpools";
+import News from "../Components/news";
 
 import RGL, { WidthProvider } from "react-grid-layout";
 
@@ -17,7 +18,10 @@ export default function GridLayout(props) {
       <div key={1}>
         <NewPools></NewPools>
       </div>,
-      <div key={2}></div>,
+      <div key={2}>
+        <News></News>
+      </div>,
+
       <div key={3} id="big-board">
         <LiveBoard></LiveBoard>
       </div>,
