@@ -20,14 +20,9 @@ export default function TradeBar(props) {
     });
   }, []);
 
-  useEffect(() => {
-    console.log("INTOKEN", inToken);
-  }, [inToken]);
-
-  console.log("IN TOKEN OUTSIDE EFFECT", inToken);
   const srcToken = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"; // ETH
   const destToken = "0x6b175474e89094c44da98b954eedeac495271d0f"; // DAI
-  const srcAmount = "1000000000000000000"; //The source amount multiplied by its decimals: 10 ** 18 here
+  const srcAmount = (amountIn * 1e18).toString(); //The source amount multiplied by its decimals: 10 ** 18 here
   const priceRoute = paraSwap.getRate(srcToken, destToken, srcAmount);
   priceRoute.then((data) => setAmountOut(parseInt(data.destAmount) / 1e18));
 

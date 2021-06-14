@@ -47,7 +47,6 @@ const SLayout = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 100vh;
   text-align: center;
 `;
 
@@ -73,6 +72,7 @@ const SLanding = styled(Column)`
 
 const SModalContainer = styled.div`
   width: 100%;
+  height: 100%;
   position: relative;
   word-wrap: break-word;
 `;
@@ -548,7 +548,7 @@ class Connection extends React.Component {
     } = this.state;
     return (
       <SLayout>
-        <Column maxWidth={1000} spanHeight>
+        <Column maxWidth={1000}>
           <Header
             connected={connected}
             address={address}
@@ -556,7 +556,6 @@ class Connection extends React.Component {
             killSession={this.resetApp}
             onConnect={this.onConnect}
           />
-          <SContent></SContent>
         </Column>
         <Modal show={showModal} toggleModal={this.toggleModal}>
           {pendingRequest ? (
