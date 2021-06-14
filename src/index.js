@@ -13,6 +13,8 @@ import { split } from "apollo-link";
 import { WebSocketLink } from "apollo-link-ws";
 import { HttpLink } from "apollo-link-http";
 
+// @ts-ignore
+
 const uniHttpLink = new HttpLink({
   uri: "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2",
 });
@@ -99,14 +101,16 @@ export default function MasterLayout(props) {
 
   return (
     <ApolloProvider client={{ uniClient, sushiClient, univ3Client }}>
-      <div class="parent">
-        <div class="nav-bar"></div>
-        <div class="trade-bar">
+      <div className="parent">
+        <div className="nav-bar">
+          <img className="logo-nav" src="/logo.svg"></img>
+        </div>
+        <div className="trade-bar">
           <TradeBar></TradeBar>
         </div>
 
-        <div class="main-area">
-          <div class="logo-top"></div>
+        <div className="main-area">
+          <div className="logo-top"></div>
           <GridLayout onLayoutChange={onLayoutChange} />
         </div>
       </div>

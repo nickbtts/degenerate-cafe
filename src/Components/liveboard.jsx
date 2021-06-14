@@ -55,7 +55,7 @@ export default function Liveboard(props) {
       newData.subscriptionData.data.swaps.forEach(
         (data) => (data.source = "univ3")
       );
-      console.log("univ3swaps", newData.subscriptionData.data.swaps);
+      //console.log("univ3swaps", newData.subscriptionData.data.swaps);
       setSwaps((prev) =>
         cleanMultiHopsAndSort([...newData.subscriptionData.data.swaps, ...prev])
       );

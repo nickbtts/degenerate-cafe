@@ -1,0 +1,17 @@
+.gas-title {
+  font-family: "Karla", serif;
+  color: whitesmoke;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.par-gas {
+  font-size: 12px;
+  color: whitesmoke;
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
