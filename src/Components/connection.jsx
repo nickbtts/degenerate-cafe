@@ -1,8 +1,8 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Web3 from "web3";
 import Web3Modal from "web3modal";
-// @ts-ignore
 import WalletConnectProvider from "@walletconnect/web3-provider";
 import Column from "../UI-Components/Column";
 import Modal from "../UI-Components//Modal";
@@ -28,10 +28,6 @@ const SContainer = styled.div`
   justify-content: center;
   align-items: center;
   word-break: break-word;
-`;
-
-const SLanding = styled(Column)`
-  height: 20px;
 `;
 
 const SModalContainer = styled.div`
@@ -226,7 +222,7 @@ class Connection extends React.Component {
         result: formattedResult || null,
       });
     } catch (error) {
-      console.error(error); // tslint:disable-line
+      console.error(error); // eslint:disable-line
       this.setState({ web3, pendingRequest: false, result: null });
     }
   };

@@ -31,7 +31,7 @@ export default function FearGreed(props) {
           return;
         }
         //Gets the entire text from the website assigns to "bodyText"
-        var $ = cheerio.load(body);
+        let $ = cheerio.load(body);
         bodyText = $("html > body").text().toLowerCase();
         //Extracts the FGI information from the website and trims it down to the Ranking and FGIndex number
         FGIRoughStartIndex = SearchForWord(bodyText, SEARCH_WORD);
