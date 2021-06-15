@@ -97,19 +97,3 @@ export const UNIV3_SUBSCRIPTION = gql`
     }
   }
 `;
-
-// const client = new ApolloClient({
-//   uri: APIURL,
-//   cache: new InMemoryCache(),
-// });
-
-// export const uniQuery = client
-//   .query({
-//     query: gql(tokensQuery),
-//   })
-//   .then((data) => {
-//     return data.data.swaps[0];
-//   })
-//   .catch((err) => {
-//     console.log("Error fetching data: ", err);
-//   });
