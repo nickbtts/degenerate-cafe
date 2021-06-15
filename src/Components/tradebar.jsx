@@ -12,9 +12,7 @@ export default function TradeBar(props) {
   const { outToken, setOutToken } = useContext(OutTokenContext);
   const [amountIn, setAmountIn] = useState(1);
   const [amountOut, setAmountOut] = useState();
-
   const paraSwap = new ParaSwap();
-  console.log("intoken", inToken);
   const srcToken = inToken.address; // WETH
   const destToken = outToken.address; // DAI
   const srcAmount = (amountIn * 1e18).toString(); //The source amount multiplied by its decimals: 10 **

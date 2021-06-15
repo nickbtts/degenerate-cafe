@@ -97,7 +97,6 @@ export default function NewPools(props) {
           parseInt(a.volume.replace(/\D/g, ""))
         );
       });
-    console.log("NEW POOLS", newPools);
     setState({ pools: newPools });
   }
 
