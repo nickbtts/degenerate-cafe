@@ -10,7 +10,6 @@ export default function TVL() {
       method: "get",
       url: "https://api.llama.fi/protocols",
     }).then((data) => {
-      console.log("TVLDATA", data);
       setTVLData(
         data.data.map((protocol) => (
           <div className="tvl-item" key={protocol.id}>
@@ -33,17 +32,6 @@ export default function TVL() {
               Tx
             </a>
           </div>
-
-          // <div className="tvl-item" key={protocol.address}>
-          //   <span className="tvl-title">{protocol.name}</span>
-          //   <span className="tvl-title">${Math.round(protocol.tvl)}</span>
-          //   <span className="tvl-title">%{protocol.change_1d}</span>
-          //   <span className="tvl-link">
-          //     <a href={protocol.url} target="_blank" rel="noreferrer">
-          //       Link
-          //     </a>
-          //   </span>
-          // </div>
         ))
       );
     });
@@ -52,7 +40,7 @@ export default function TVL() {
   return (
     <div className="tvl-parent">
       <div className="title">
-        <span>Fresh Uniswap Listings</span>
+        <span>DeFi Protocol Total Value Locked</span>
       </div>
       <div className="tvl-item-header">
         <div className="tvl1">Procotol</div>
