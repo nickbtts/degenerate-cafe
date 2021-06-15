@@ -1,0 +1,17 @@
+.fear-greed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fear-greed-title {
+  color: whitesmoke;
+  margin-top: 10px;
+}
+
+.fear-greed-number {
+  margin: 5px;
+  color: whitesmoke;
+  font-size: 30px;
+}

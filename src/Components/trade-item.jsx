@@ -12,10 +12,12 @@ export default function TradeItem(props) {
     setInToken({
       value: data.tokIn,
       name: data.tokIn,
+      address: data.tokInAdd,
     });
     setOutToken({
       value: data.tokOut,
       name: data.tokOut,
+      address: data.tokOutAdd,
     });
   }
 

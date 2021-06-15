@@ -206,7 +206,7 @@ class Connection extends React.Component {
     if (!provider.on) {
       return;
     }
-    provider.on("close", () => this.resetApp());
+    provider.on("disconnect", () => this.resetApp());
     provider.on("accountsChanged", async (accounts) => {
       await this.setState({ address: accounts[0] });
       await this.getAccountAssets();
@@ -528,8 +528,8 @@ class Connection extends React.Component {
 
   resetApp = async () => {
     const { web3 } = this.state;
-    if (web3 && web3.currentProvider && web3.currentProvider.close) {
-      await web3.currentProvider.close();
+    if (web3 && web3.currentProvider && web3.currentProvider.disconnect) {
+      await web3.currentProvider.disconnect();
     }
     await this.web3Modal.clearCachedProvider();
     this.setState({ ...INITIAL_STATE });

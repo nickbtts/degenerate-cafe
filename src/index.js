@@ -99,12 +99,12 @@ export default function MasterLayout(props) {
   const [inToken, setInToken] = useState({
     value: "ETH",
     name: "ETH",
-    address: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    address: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
   });
   const [outToken, setOutToken] = useState({
     value: "DAI",
     name: "DAI",
-    address: "0x89d24a6b4ccb1b6faa2625fe562bdd9a23260359",
+    address: "0x6b175474e89094c44da98b954eedeac495271d0f",
   });
 
   //const [outToken, setOutToken] = useState({});
@@ -120,12 +120,14 @@ export default function MasterLayout(props) {
           <div className="parent">
             <div className="nav-bar">
               <img className="logo-nav" src="/logo.svg"></img>
+              <img className="nav-nav" src="/nav.svg"></img>
             </div>
             <div className="trade-bar">
               <TradeBar></TradeBar>
             </div>
 
             <div className="main-area">
+              <img className="behind-logo" src="/degencafe.png"></img>
               <div className="logo-top"></div>
               <GridLayout onLayoutChange={onLayoutChange} />
             </div>

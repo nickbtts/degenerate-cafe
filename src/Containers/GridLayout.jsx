@@ -4,6 +4,8 @@ import Databoard from "../Components/databoard.jsx";
 import LiveBoard from "../Components/liveboard.jsx";
 import NewPools from "../Components/newpools";
 import News from "../Components/news";
+import FearGreed from "../Components/feargreed";
+import TVL from "../Components/tvl";
 
 import RGL, { WidthProvider } from "react-grid-layout";
 
@@ -25,8 +27,12 @@ export default function GridLayout(props) {
       <div key={3} id="big-board">
         <LiveBoard></LiveBoard>
       </div>,
-      <div key={4}></div>,
-      <div key={5}></div>,
+      <div key={4}>
+        <FearGreed></FearGreed>
+      </div>,
+      <div key={5}>
+        <TVL></TVL>
+      </div>,
     ];
     console.log(mapBoards);
     return mapBoards;

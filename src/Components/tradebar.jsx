@@ -6,36 +6,60 @@ import Connection from "./connection";
 import SelectSearch from "react-select-search";
 import InTokenContext from "../Contexts/in-token-context";
 import OutTokenContext from "../Contexts/out-token-context";
+
 export default function TradeBar(props) {
   const { inToken, setInToken } = useContext(InTokenContext);
   const { outToken, setOutToken } = useContext(OutTokenContext);
   const [tokenList, setTokenList] = useState([]);
   const [amountIn, setAmountIn] = useState(1);
   const [amountOut, setAmountOut] = useState();
+
   const paraSwap = new ParaSwap();
-
-  useEffect(async () => {
-    const tok = await paraSwap.getTokens().then((data) => {
-      setTokenList(data);
-    });
-  }, []);
-
-  const srcToken = "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"; // ETH
-  const destToken = "0x6b175474e89094c44da98b954eedeac495271d0f"; // DAI
-  const srcAmount = (amountIn * 1e18).toString(); //The source amount multiplied by its decimals: 10 ** 18 here
+  console.log("intoken", inToken);
+  const srcToken = inToken.address; // WETH
+  const destToken = outToken.address; // DAI
+  const srcAmount = (amountIn * 1e18).toString(); //The source amount multiplied by its decimals: 10 **
+  //const destAmount = (amountOut * 1e18).toString();
   const priceRoute = paraSwap.getRate(srcToken, destToken, srcAmount);
-  priceRoute.then((data) => setAmountOut(parseInt(data.destAmount) / 1e18));
+  priceRoute.then((data) => setAmountOut(data.destAmount));
 
-  function handleOutChange(e) {
-    console.log("e", e);
+  // paraSwap.setWeb3Provider(web3Provider);
 
-    setInToken({ value: e, name: e });
+  // const allowance = paraSwap.getAllowance(userAddress, tokenAddress);
+
+  // const txHash = paraSwap.approveToken(amount, userAddress, tokenAddress);
+
+  // const senderAddress = "0xfceA770875E7e6f25E33CEa5188d12Ef234606b4";
+
+  // const referrer = "deg_cafe";
+
+  // const txParams = paraSwap.buildTx(
+  //   srcToken,
+  //   destToken,
+  //   srcAmount,
+  //   destAmount,
+  //   priceRoute,
+  //   senderAddress,
+  //   referrer,
+  //   receiver
+  // );
+
+  // web3.eth.sendTransaction(txParams, async (err, transactionHash) => {
+  //   if (err) {
+  //     return setState({ error: err.toString(), loading: false });
+  //   }
+  //   console.log("transactionHash", transactionHash);
+  // });
+
+  function handleOutChange(e, moreData) {
+    console.log("mde", moreData);
+
+    setOutToken({ value: moreData.name, name: e, address: moreData.address });
     // If the current value passes the validity test then apply that to state
-    console.log(e);
   }
 
-  function handleInChange(e) {
-    setInToken({ value: e, name: e });
+  function handleInChange(e, moreData) {
+    setInToken({ value: moreData.name, name: e, address: moreData.address });
   }
   function handleSubmit(event) {
     event.preventDefault();
@@ -63,7 +87,7 @@ export default function TradeBar(props) {
           <SelectSearch
             options={[]}
             value={inToken}
-            onChange={handleOutChange}
+            onChange={(value, moreData) => handleInChange(value, moreData)}
             getOptions={(query) => {
               return new Promise((resolve, reject) => {
                 paraSwap
@@ -93,31 +117,36 @@ export default function TradeBar(props) {
           <SelectSearch
             options={[]}
             value={outToken}
-            onChange={handleInChange}
+            onChange={(value, moreData) => handleOutChange(value, moreData)}
             getOptions={(query) => {
               return new Promise((resolve, reject) => {
-                paraSwap
-                  .getTokens()
-                  .then((data) => {
-                    resolve(
-                      data
-                        .map(({ address, symbol }) => ({
-                          value: symbol,
-                          name: symbol,
-                        }))
-                        .filter((ele) =>
-                          ele.name.toLowerCase().includes(query.toLowerCase())
-                        )
-                    );
-                  })
-                  .catch(reject);
+                try {
+                  paraSwap
+                    .getTokens()
+                    .then((data) => {
+                      resolve(
+                        data
+                          .map(({ address, symbol }) => ({
+                            value: symbol,
+                            name: symbol,
+                            address: address,
+                          }))
+                          .filter((ele) =>
+                            ele.name.toLowerCase().includes(query.toLowerCase())
+                          )
+                      );
+                    })
+                    .catch(reject);
+                } catch (e) {
+                  console.log("error");
+                }
               });
             }}
             search
             placeholder="ERC"
           />
         </div>
-        <div className="output-number">{amountOut}</div>
+        <div className="output-number">{amountOut / 1e18}</div>
         <div className="swp-txt menu-text">Swap</div>
       </div>
       <div className="gp-tradebar">

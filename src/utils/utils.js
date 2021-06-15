@@ -58,13 +58,17 @@ function dataWash(data) {
   if (data.amount0Out === "0") {
     data.noOut = roundToTwo(data.amount1Out);
     data.tokOut = data.pair.token1.symbol;
+    data.tokOutAdd = data.pair.token1.id;
     data.noIn = roundToTwo(data.amount0In);
     data.tokIn = data.pair.token0.symbol;
+    data.tokInAdd = data.pair.token0.id;
   } else {
     data.noOut = roundToTwo(data.amount0Out);
     data.tokOut = data.pair.token0.symbol;
+    data.tokOutAdd = data.pair.token0.id;
     data.noIn = roundToTwo(data.amount1In);
     data.tokIn = data.pair.token1.symbol;
+    data.tokInAdd = data.pair.token1.id;
   }
 }
 
@@ -72,8 +76,10 @@ function dataWashv3(data) {
   data.totUSD = roundToTwo(data.amountUSD);
   data.noOut = roundToTwo(data.amount0);
   data.tokOut = data.token0.symbol;
+  data.tokOutAdd = data.token0.id;
   data.noIn = roundToTwo(data.amount1);
   data.tokIn = data.token1.symbol;
+  data.tokInAdd = data.token1.id;
 }
 
 export function cleanMultiHopsAndSort(arr, source) {
