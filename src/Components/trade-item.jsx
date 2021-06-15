@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import "./trade-item.css";
 import InTokenContext from "../Contexts/in-token-context";
 import OutTokenContext from "../Contexts/out-token-context";

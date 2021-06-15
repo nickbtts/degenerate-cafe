@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-
 import "./feargreed.css";
-
 const request = require("request");
 const cheerio = require("cheerio");
 
@@ -15,16 +13,9 @@ export default function FearGreed(props) {
   var bodyText = "";
   var ranking = "";
   var FGIndex = "0";
-  var url =
-    "https://cors.bridged.cc/https://alternative.me/crypto/fear-and-greed-index/";
-
-  console.log("The updated FGIBot has been started.");
-
-  //Parses the website for the Fear and Greed Index information and then tweets it.
   async function getIndex() {
     let FGIRoughStartIndex = 0; //index number for where the FGIndex information starts in the bodyText
     let FGRoughIndex = ""; //Gets the substring of the FGIndex information (the index number and ranking)
-
     //Accesses the website
     await request(
       "https://cors.bridged.cc/https://alternative.me/crypto/fear-and-greed-index/",
@@ -42,7 +33,6 @@ export default function FearGreed(props) {
         //Gets the entire text from the website assigns to "bodyText"
         var $ = cheerio.load(body);
         bodyText = $("html > body").text().toLowerCase();
-
         //Extracts the FGI information from the website and trims it down to the Ranking and FGIndex number
         FGIRoughStartIndex = SearchForWord(bodyText, SEARCH_WORD);
         FGRoughIndex = bodyText.substr(FGIRoughStartIndex + 3, 20);
@@ -54,7 +44,6 @@ export default function FearGreed(props) {
           FGIndex.length - ranking.length
         );
         FGIndex = FGIndex.trim();
-
         switch (ranking) {
           case "extreme greed":
             ranking = "Extreme Greed";

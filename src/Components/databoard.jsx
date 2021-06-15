@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./databoard.css";
-import { useQuery } from "react-query";
 const axios = require("axios").default;
 
 export default function Databoard() {

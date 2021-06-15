@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../index.css";
 import Databoard from "../Components/databoard.jsx";
 import LiveBoard from "../Components/liveboard.jsx";
@@ -39,7 +39,6 @@ export default function GridLayout(props) {
   };
 
   const generateLayout = () => {
-    //const p = this.props
     return [
       { w: 12, h: 7, x: 0, y: 0, i: "0" },
       { w: 12, h: 7, x: 0, y: 5, i: "1" },

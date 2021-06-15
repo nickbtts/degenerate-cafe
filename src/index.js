@@ -1,5 +1,4 @@
 import "./index.css";
-
 import reportWebVitals from "./reportWebVitals";
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
@@ -8,14 +7,11 @@ import TradeBar from "./Components/tradebar";
 import { ApolloClient } from "apollo-client";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { InMemoryCache } from "apollo-cache-inmemory";
-
 import { split } from "apollo-link";
 import { WebSocketLink } from "apollo-link-ws";
 import { HttpLink } from "apollo-link-http";
 import InTokenContext from "./Contexts/in-token-context";
 import OutTokenContext from "./Contexts/out-token-context";
-
-// @ts-ignore
 
 const uniHttpLink = new HttpLink({
   uri: "https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v2",
@@ -107,8 +103,6 @@ export default function MasterLayout(props) {
     address: "0x6b175474e89094c44da98b954eedeac495271d0f",
   });
 
-  //const [outToken, setOutToken] = useState({});
-
   const onLayoutChange = (layout) => {
     setLayout(layout);
   };
@@ -119,15 +113,18 @@ export default function MasterLayout(props) {
         <ApolloProvider client={{ uniClient, sushiClient, univ3Client }}>
           <div className="parent">
             <div className="nav-bar">
-              <img className="logo-nav" src="/logo.svg"></img>
-              <img className="nav-nav" src="/nav.svg"></img>
+              <img className="logo-nav" src="/logo.svg" alt="navlogo"></img>
+              <img className="nav-nav" src="/nav.svg" alt="otherlogos"></img>
             </div>
             <div className="trade-bar">
               <TradeBar></TradeBar>
             </div>
-
             <div className="main-area">
-              <img className="behind-logo" src="/degencafe.png"></img>
+              <img
+                className="behind-logo"
+                src="/degencafe.png"
+                alt="backlogo"
+              ></img>
               <div className="logo-top"></div>
               <GridLayout onLayoutChange={onLayoutChange} />
             </div>
@@ -142,7 +139,4 @@ const contentDiv = document.getElementById("root");
 const gridProps = window.gridProps || {};
 ReactDOM.render(React.createElement(MasterLayout, gridProps), contentDiv);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

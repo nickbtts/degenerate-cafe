@@ -10,7 +10,6 @@ import OutTokenContext from "../Contexts/out-token-context";
 export default function TradeBar(props) {
   const { inToken, setInToken } = useContext(InTokenContext);
   const { outToken, setOutToken } = useContext(OutTokenContext);
-  const [tokenList, setTokenList] = useState([]);
   const [amountIn, setAmountIn] = useState(1);
   const [amountOut, setAmountOut] = useState();
 
@@ -19,43 +18,11 @@ export default function TradeBar(props) {
   const srcToken = inToken.address; // WETH
   const destToken = outToken.address; // DAI
   const srcAmount = (amountIn * 1e18).toString(); //The source amount multiplied by its decimals: 10 **
-  //const destAmount = (amountOut * 1e18).toString();
   const priceRoute = paraSwap.getRate(srcToken, destToken, srcAmount);
   priceRoute.then((data) => setAmountOut(data.destAmount));
 
-  // paraSwap.setWeb3Provider(web3Provider);
-
-  // const allowance = paraSwap.getAllowance(userAddress, tokenAddress);
-
-  // const txHash = paraSwap.approveToken(amount, userAddress, tokenAddress);
-
-  // const senderAddress = "0xfceA770875E7e6f25E33CEa5188d12Ef234606b4";
-
-  // const referrer = "deg_cafe";
-
-  // const txParams = paraSwap.buildTx(
-  //   srcToken,
-  //   destToken,
-  //   srcAmount,
-  //   destAmount,
-  //   priceRoute,
-  //   senderAddress,
-  //   referrer,
-  //   receiver
-  // );
-
-  // web3.eth.sendTransaction(txParams, async (err, transactionHash) => {
-  //   if (err) {
-  //     return setState({ error: err.toString(), loading: false });
-  //   }
-  //   console.log("transactionHash", transactionHash);
-  // });
-
   function handleOutChange(e, moreData) {
-    console.log("mde", moreData);
-
     setOutToken({ value: moreData.name, name: e, address: moreData.address });
-    // If the current value passes the validity test then apply that to state
   }
 
   function handleInChange(e, moreData) {

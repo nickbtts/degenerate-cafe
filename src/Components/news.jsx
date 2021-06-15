@@ -4,7 +4,6 @@ const axios = require("axios").default;
 
 export default function News() {
   const [NewsData, setNewsData] = useState([]);
-  let count = 0;
   useEffect(() => {
     axios({
       method: "get",

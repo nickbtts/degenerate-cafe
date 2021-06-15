@@ -7,7 +7,6 @@ export default function GasPrice(props) {
     "wss://www.gasnow.org/ws/gasprice"
   );
   const { lastMessage, readyState } = useWebSocket(socketUrl);
-  let gasdata, gasdataFa, gasdataSt, gasdataSL;
   const connectionStatus = {
     [ReadyState.CONNECTING]: "Connecting",
     [ReadyState.OPEN]: "Open",
@@ -15,8 +14,6 @@ export default function GasPrice(props) {
     [ReadyState.CLOSED]: "Closed",
     [ReadyState.UNINSTANTIATED]: "Uninstantiated",
   }[readyState];
-
-  console.log("readyState", connectionStatus);
 
   function generateDivs() {
     console.log(JSON.parse(lastMessage.data).data);

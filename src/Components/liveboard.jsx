@@ -13,18 +13,6 @@ import { useApolloClient } from "@apollo/client";
 
 export default function Liveboard(props) {
   const [swaps, setSwaps] = useState([]);
-
-  // function processSwaps (data) {
-  // console.log('data', data)
-  // console.log('swaps', swaps)
-  // let newData = swaps.concat(data)
-  // console.log('newData', newData)
-  // return cleanMultiHops(newData)
-  // }
-
-  // const { loading, error, initData } = useQuery(TRADE_QUERY, {onCompleted: (initDat) => {
-  // console.log('QUERY');
-  // setSwaps(cleanMultiHops(initDat.swaps))}})
   const { sushiClient, uniClient, univ3Client } = useApolloClient();
   const { loadingUni, errorUni } = useSubscription(TRADE_SUBSCRIPTION, {
     onSubscriptionData: (newData) => {
@@ -55,7 +43,6 @@ export default function Liveboard(props) {
       newData.subscriptionData.data.swaps.forEach(
         (data) => (data.source = "univ3")
       );
-      //console.log("univ3swaps", newData.subscriptionData.data.swaps);
       setSwaps((prev) =>
         cleanMultiHopsAndSort([...newData.subscriptionData.data.swaps, ...prev])
       );
@@ -63,8 +50,8 @@ export default function Liveboard(props) {
     client: univ3Client,
   });
 
-  if (loading) console.log("loading");
-  if (error) console.log("error");
+  if (loading || loadingv3 || loadingUni) console.log("loading");
+  if (error || errorv3 || errorUni) console.log("error");
   return (
     <div className="par-liveboard">
       {loading ? (
