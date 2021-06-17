@@ -4,7 +4,7 @@
 
 ![https://github.com/nickbtts/degenerate-cafe](https://img.shields.io/github/last-commit/nickbtts/degenerate-cafe?style=flat-square)
 
-![](./public/dgenlogo.png)
+<img src="./public/dgenlogo.png" width="200">
 
 ## Features
 
