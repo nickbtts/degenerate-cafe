@@ -31,7 +31,11 @@ These instructions will help you setup a local development instance of the app.
 
 ### get the repo
 
-`git clone https://github.com/hucki/grouptripper.git`
+`git clone https://github.com/nickbtts/degenerate-cafe.git`
+
+### navigate to the folder
+
+`cd degenerate-cafe`
 
 ### install the dependencies
 
@@ -39,7 +43,7 @@ These instructions will help you setup a local development instance of the app.
 
 ### Start the App
 
-From the root folder of the project change into `/client` and `npm start`
+`npm start`
 
 ## Tech-Stack
 
