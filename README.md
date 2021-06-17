@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# Degenerate Cafe
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Trade with accessible on-chain data
 
-## Available Scripts
+![https://github.com/nickbtts/degenerate-cafe](https://img.shields.io/github/last-commit/nickbtts/degenerate-cafe?style=flat-square)
 
-In the project directory, you can run:
+![](./client/public/dgenlogo.png)
 
-### `yarn start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Displays real-time trades from Uniswap v2, v3 & Sushiswap.
+- Provides search trending tokens from Coingecko.
+- Filters and displays recently added Uniswap liquidity pools.
+- Displays Bitcoin Fear & Greed Index.
+- Shows Total Value Locked and change in DeFi protocols.
+- Generates best possible price quote through Paraswap aggregation.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Project Presentation
 
-### `yarn test`
+Degenerate Cafe was developed as a Solo for the Codeworks Bootcamp by <a href="https://github.com/nickbtts"><b>nickbtts</b></a>.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Here you can find a video of the project presentation:
 
-### `yarn build`
+<p align="center">
+<a href="https://www.youtube.com/watch?v=yCkO8AJgTbM"><img src="http://img.youtube.com/vi/yCkO8AJgTbM/0.jpg" alt="Degen Cafe Thumbnail"/></a>
+</p>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+These instructions will help you setup a local development instance of the app.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### get the repo
 
-### `yarn eject`
+`git clone https://github.com/hucki/grouptripper.git`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### install the dependencies
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`npm install`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Start the App
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+From the root folder of the project change into `/client` and `npm start`
 
-## Learn More
+## Tech-Stack
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![https://reactjs.org](https://img.shields.io/badge/react-%5E17.0.2-%2361DAFB?style=flat-square&logo=react)
+![https://www.graphql.com](https://img.shields.io/badge/GraphQL-%5E15.5.0-%2347A248?style=flat-square&logo=mongodb)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### TechStack
 
-### Code Splitting
+- [JavaScript](https://www.typescriptlang.org)
+- [reactjs](https://reactjs.org)
+- [GraphQL](https://graphql.com)
+- [Web3JS](https://web3js.readthedocs.io/en/v1.3.4/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### APIs
 
-### Analyzing the Bundle Size
+- [TheGraph](https://thegraph.com)
+- [Coingecko](https://www.coingecko.com)
+- [Etherscan](https://etherscan.io)
+- [Alchemy](https://alchemy.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contributors ✨
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions of any kind welcome!
